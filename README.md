@@ -28,9 +28,6 @@ helping to prevent overfitting.
 <br>
 The Adaptive Moment Estimation (Adam) optimizer is used for combining the best properties of the AdaGrad and RMSProp algorithms to handle sparse gradients on noisy problems. 
 As a result, the model has  a 92.17% validation accuracy over 243 images in the validation set., while also achieving 91.67% accuracy over the test set.
-<br>
-<br>
-This app is created by Harry as part of AIAP7.
 
 ## 3.Model Deployment
 
@@ -111,4 +108,4 @@ More features can be added to the application, including a database and cache to
 
 ## 7.Authors
 
-This app is created by Harry as part of AIAP7. Please contact: [harry_tsang@aiap.sg](harry_tsang@aiap.sg)
+This app is created by Harry Tsang. Please contact: [harrytsang92@gmail.com](harrytsang92@gmail.com)
