@@ -1,0 +1,272 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="main">
+  <div class="title" style="text-align: center;">
+    <h1><p style = "font-family : 'Avenir' ; font-size : 35pt">Seen amazing Singaporean food but can't recognise it? Let us help.</p></h1>
+    <p style = "font-family : 'Avenir' ; font-size : 15pt"><b>This page aims to help foreigners recognise Singaporean food and understand its history.</b></p>
+    <p style = "font-family : 'Avenir' ; font-size : 14pt"><b>Snap and upload here!</b></p>
+  </div>
+
+  <div class="panel">
+    <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+    <label for="file-upload" id="file-drag" class="upload-box">
+      <div id="upload-caption">Drop image here or click to select</div>
+      <img id="image-preview" class="hidden" />
+    </label>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <input type="button" value="Submit" class="button" onclick="submitImage();" />
+    <input type="button" value="Clear" class="button" onclick="clearImage();" />
+  </div>
+
+  <div id="image-box">
+    <img id="image-display" />
+    <div id="pred-result" class="hidden"></div>
+    <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+</div>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.collapsible {
+  background-color: rgb(51, 50, 50);
+  color: white;
+  cursor: pointer;
+  padding: 2px;
+  width: 20%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 10px;
+  opacity:0.8
+}
+
+.active, .collapsible:hover {
+  background-color: rgb(34, 34, 34);
+}
+
+.content {
+  padding: 0 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #2F2C2C;
+}
+</style>
+</head>
+<body>
+<style>
+a:link {
+  color: rgb(15, 194, 194);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(239, 243, 20);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(61, 61, 53);
+  background-color: transparent;
+  text-decoration: underline;
+}
+</style>
+
+<button class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 15pt">Documentation +</p></button>
+<div class="content">
+  <p style = "font-family : 'Avenir' ; font-size : 13pt">
+    <a href="http://harrytsang.aiap.okdapp.tekong.aisingapore.net/docs">Documentation</a><br>
+</p>
+</div>
+
+<button class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 15pt">Model Specifications +</p></button>
+<div class="content">
+  <p style = "font-family : 'Avenir' ; font-size : 11pt">
+    This model is built upon 1224 images of 12 different classes of Singaporean food, with the training,validation and test set split of 60:20:20.
+    The food classifier is built using transfer learning of the InceptionV3 model, trained using the recognised Imagenet. The pre-trained weights were then used in this model,
+    of which consisting of 315 layers and 263,820 trainable parameters. The model architecture also consists of batch normalization with early stop monitoring on validation loss, 
+    helping to prevent overfitting. 
+    <br>
+    <br>
+    The Adaptive Moment Estimation (Adam) optimizer is used for combining the best properties of the AdaGrad and RMSProp algorithms to handle sparse gradients on noisy problems. 
+    As a result, the model has  a <b>92.17%</b> validation accuracy over 243 images in the validation set., while also achieving <b>91.67%</b> accuracy over the test set.
+    <br>
+    <br>
+    <i>This app is created by Harry as part of AIAP7.</i>
+    <br>
+    <a href="http://harrytsang.aiap.okdapp.tekong.aisingapore.net/info">Model Information in JSON</a><br>
+</p>
+</div>
+
+
+<button class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 15pt">12 Amazing Singaporean Food +</p></button>
+<div class="content">
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">1.Chilli Crab</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-chilli-crab.png" width="250" height="150">
+            <br>
+            Chilli crab is a Singaporean seafood dish. Mud crabs are commonly used and are stir-fried in a semi-thick, sweet and savoury tomato-and-chilli-based sauce.
+            Despite its name, chilli crab is not a very spicy dish. It is listed at number 35 on the World's 50 most delicious foods list compiled by CNN Go in 2011.
+        </p>
+    </div>
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">2.Curry Puff</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-curry-puff.jpeg" width="250" height="150">
+            <br>
+            A curry puff is a snack of Malayan origin. It is a small pie consisting of curry with chicken and potatoes in a deep-fried or baked pastry shell.
+            The curry is quite thick to prevent it from oozing out of the snack. Although the origins of this snack are uncertain,
+            the snack is believed to have originated in Malaya due in part to the various influences of the British Cornish pasty,
+            the Portuguese empanada and the Indian samosa during the colonization era. The curry puff is one of several "puff" type pastries with different fillings, 
+            though now it is by far the most common. Other common varieties include eggs, sardines, and onions or sweet fillings such as yam.
+        </p>
+    </div>
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">3.Dim Sum</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-dim-sum.jpg" width="250" height="150">
+            <br>
+            Dim sum is a large range of small dishes that Cantonese people traditionally enjoy in restaurants for breakfast and lunch.
+            In the tenth century, when the city of Guangzhou (Canton) began to experience an increase in commercial travel,
+            travelers concurrently began to frequent teahouses for small-portion meals with tea called yum cha, or "drink tea" meals.
+            Yum cha includes two related concepts.[6] The first is "yat jung leung gin" (一盅兩件), which translates literally as "one cup, two pieces". 
+            This refers to the custom of serving teahouse customers two pieces of delicately made food items, savory or sweet, to complement their tea. 
+            The second is dim sum and translates literally to "touching heart", the term used to designate the small food items that accompanied the tea drinking.
+        </p>
+    </div>    
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">4.Ice Kacang</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-ice-kacang.jpg" width="250" height="150">
+            <br>
+            Ais kacang, literally meaning "bean ice", also commonly known as ABC (acronym for Air Batu Campur [air ˈbatu tʃamˈpʊr], meaning "mixed ice"), 
+            is a Malaysian dessert which is also common in Singapore (where it is called ice kachang) and Brunei.
+            Traditionally, an ice shaving machine is used to churn out the shaved ice used in the dessert, originally hand cranked but now more often motorised. 
+            Many Southeast Asian coffee shops, hawker centres and food courts sell this dessert. Ais kacang is considered one of Malaysia's most unique dishes, and is featured
+            in many articles as such.
+        </p>
+    </div>    
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">5.Kaya Toast</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-kaya-toast.jpg" width="250" height="150">
+            <br>
+            Kaya toast is a breakfast dish originating from Singapore. The food consists of two slices of toast with butter and kaya (coconut jam), 
+            commonly served alongside coffee and soft-boiled eggs. Kaya toast can also be enjoyed in the afternoon as a snack.
+            The introduction of kaya toast happened in close timing with the appearance of kopi tiams or coffee shops in the country. 
+            It is speculated that Hainanese immigrants that came up with the dish would use their learnt skills to open these kopi tiam establishments. 
+            The popularity of kaya toast is so tightly linked with kopi tiams that even now, Singaporean shop chains such Ya Kun Kaya Toast, 
+            Killiney Kopitiam and Toast Box continue to rejuvenate the popularity of kaya toast in modern times with re-creations and adaptations of the toast.
+        </p>
+    </div>    
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">6.Nasi Ayam</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-nasi-ayam.jpeg" width="250" height="150">
+            <br>
+            This is something you should definitely try at least once. Flavorful fried chicken is accompanied with a savory sweet chili sauce and served with 
+            white rice steamed in chicken stock and aromatics, with a side of chicken soup to wash it all down. Every single aspect of this meal is a treat to the senses. 
+        </p>
+    </div>   
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">7.Popiah</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-popiah.JPG" width="250" height="150">
+            <br>
+            Popiah is a Fujianese/Teochew-style fresh spring roll. Popiah is often eaten in the Fujian province of China and its neighbouring Chaoshan and in Taiwan,
+             during the Qingming Festival. The origin of popiah dates back to the 17th century. 
+        </p>
+    </div>   
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">8.Roti Prata</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-roti-prata.jpg" width="250" height="150">
+            <br>
+            Roti canai, or roti chenai, also known as roti cane and roti prata, 
+            is an Indian-influenced flatbread dish found in several countries in Southeast Asia, including Brunei, Indonesia, Malaysia and Singapore.
+        </p>
+    </div>   
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">9.Sambal Stingray</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-sambal-stingray.jpg" width="250" height="150">
+            <br>
+            Take a walk in any hawker centre by the beach in Singapore and Malaysia, and you are almost guaranteed to catch a whiff
+             of this popular dish –Sambal Stingray! It’s gently grilled over a large banana leaf and slathered over with shallots, garlic,
+              ginger and herby lemongrass, and of course a dollop of sweet, creamy sambal belacan.
+        </p>
+    </div>   
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">10.Satay</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-chicken-satay.jpg" width="250" height="150">
+            <br>
+            Satay, or sate in Indonesian and Malay spelling, is a Southeast Asian dish of seasoned, skewered and grilled meat, served with a sauce.
+        </p>
+    </div>   
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">11.Tau Huay</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-tau-huay.jpg" width="250" height="150">
+            <br>
+            Douhua is the short form of doufuhua. It is a Chinese snack made with very soft tofu. It is also referred to as tofu pudding, soybean pudding, or tofu brains.
+        </p>
+    </div>   
+    <button type="button" class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 11pt">12.Wanton Noodle</p></button>
+    <div class="content">
+        <p style = "font-family : 'Avenir' ; font-size : 11pt">
+            <img src="../static/test-wanton-noodle.jpeg" width="250" height="150">
+            <br>
+            Wonton noodles is a Cantonese noodle dish. Wonton noodles were not given their name, húntún, until the Tang Dynasty. 
+            The dish is popular in Southern China, Hong Kong, Indonesia, Malaysia, Singapore and Thailand. The dish is usually served in a hot broth,
+             garnished with leafy vegetables and wonton dumplings.
+        </p>
+    </div>  
+    <p style = "font-family : 'Avenir' ; font-size : 11pt">Content and description retrieved from <a href="https://en.wikipedia.org/wiki/Main_Page">Wikipedia</a>.</p>
+</div>
+
+<button class="collapsible"><p style = "font-family : 'Avenir' ; font-size : 15pt">Useful Links +</p></button>
+<div class="content">
+<p style = "font-family : 'Avenir' ; font-size : 11pt">
+    <a href="https://www.aisingapore.org/">AI Singapore</a><br>
+    <a href="https://arxiv.org/abs/1512.00567">Rethinking the Inception Architecture for Computer Vision (InceptionV3)</a><br>
+    <a href="https://www.tensorflow.org/datasets/catalog/food101">Food 101 Dataset(Tensorflow)</a><br>
+</p>
+</div>
+</body>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+{% endblock %}
+
+
+

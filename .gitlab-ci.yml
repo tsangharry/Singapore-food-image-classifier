@@ -1,0 +1,38 @@
+image: registry.aisingapore.net/aiap/gitlab/assignments-runner:latest
+
+stages:
+- download
+- test
+- deploy
+
+variables:
+  GIT_DEPTH: 1
+  MASTER: master
+
+before_script:
+- git clone --depth 1 --branch master --single-branch $CI_REPOSITORY_URL $MASTER
+
+download:
+  stage: download
+  only:
+    - /^deploy-.*$/
+  script:
+    - $MASTER/ci/download_model.sh
+  artifacts:
+    paths:
+      - "*/*.h5"
+    expire_in: 1h
+
+test:
+  stage: test
+  except:
+    - master
+  script:
+    - $MASTER/ci/evaluate_code.sh
+
+deploy:
+  stage: deploy
+  only:
+    - /^deploy-.*$/
+  script:
+    - $MASTER/ci/deploy.sh
