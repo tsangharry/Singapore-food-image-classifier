@@ -14,7 +14,9 @@
 
 ## Introduction
 
-This web app aims to help foreigners and people who are not familiar with Singaporean Food to recognise them, together with learning their names and what it consists of. The webpage includes an interactive component asking for an image input from the user, which subsequently returns the most likely food class with the percentage of confidence of the model for the corresponding class. 
+This web app deploys an image classification model trained with Tensorflow, deployed with Flask with a HTML+CSS frontend. 
+
+It aims to help foreigners and people who are not familiar with Singaporean Food to recognise them, together with learning their names and what it consists of. The webpage includes an interactive component asking for an image input from the user, which subsequently returns the most likely food class with the percentage of confidence of the model for the corresponding class. 
 <br>
 <br>
 The webpage also consists of other static information, such as model specifications, detailed description of the 12 classes of food and other useful links.
@@ -23,8 +25,7 @@ The webpage also consists of other static information, such as model specificati
 
 This model is built upon 1224 images of 12 different classes of Singaporean food, with the training,validation and test set split of 60:20:20.
 The food classifier is built using transfer learning of the InceptionV3 model, trained using the recognised Imagenet. The pre-trained weights were then used in this model,
-of which consisting of 315 layers and 263,820 trainable parameters. The model architecture also consists of batch normalization with early stop monitoring on validation loss, 
-helping to prevent overfitting. 
+of which consisting of 315 layers. The model architecture also consists of batch normalization with early stop monitoring on validation loss to prevent overfitting. 
 <br>
 <br>
 The Adaptive Moment Estimation (Adam) optimizer is used for combining the best properties of the AdaGrad and RMSProp algorithms to handle sparse gradients on noisy problems. 
