@@ -7,8 +7,8 @@
 1. [Introduction](#introduction)
 1. [Model Specifications](#model-specifications)
 1. [Model Deployment](#model-deployment)
-1. [UI/UX](#Ui/ux)
-1. [CI/CD Pipeline](#Ci/cd-Pipeline)
+1. [UI UX](#ui-ux)
+1. [CI CD Pipeline](#ci-cd-Pipeline)
 1. [App Limitations and Future Improvement](#app-limitations-and-future-improvement)
 1. [Authors](#authors)
 
@@ -69,14 +69,14 @@ The dataset is relatively balanced, with the smallest to the largest class rangi
 
 The model has  a <b>92.17%</b> validation accuracy over 243 images in the validation set., while also achieving <b>91.67%</b> accuracy over the test set.
 
-## UI/UX
+## UI UX
 
 There are several components to the webpage, including 2 html files (index and base), a main javascript file and a css file. There are several functions to improve user experience, such as error messages to user if 'submit' is pressed with no image uploaded. There is also a clear button to reset and delete any uploaded image in the case user wants to start over.
 <br>
 <br>
 In the static information, collapsible boxes are used to not overwhelm user with too much information at the same time, therefore focusing their attention on specific section. In the section '12 Amazing Singaporean Food +', there are nested collapsible boxes for each food for the user to read each individually.
 
-## CI/CD Pipeline
+## CI CD Pipeline
 
 Continuous integration (CI) is the practice of merging all developers' working copies to a shared mainline several times a day. On a high frequency webpage, many features may need to be updated continuously, while multiple developers may work on the same repository at the same time.
 <br>
