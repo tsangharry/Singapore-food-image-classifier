@@ -13,7 +13,7 @@
 
 ## 1.Introduction
 
-This [webpage](http://harrytsang.aiap.okdapp.tekong.aisingapore.net/) aims to help foreigners and people who are not familiar with Singaporean Food to recognise them, together with learning their names and what it consists of. The webpage includes an interactive component asking for an image input from the user, which subsequently returns the most likely food class with the percentage of confidence of the model for the corresponding class. 
+This web app aims to help foreigners and people who are not familiar with Singaporean Food to recognise them, together with learning their names and what it consists of. The webpage includes an interactive component asking for an image input from the user, which subsequently returns the most likely food class with the percentage of confidence of the model for the corresponding class. 
 <br>
 <br>
 The webpage also consists of other static information, such as model specifications, detailed description of the 12 classes of food and other useful links.
