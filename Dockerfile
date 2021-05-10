@@ -1,6 +1,3 @@
-# Add a line here to specify the docker image to inherit from.
-FROM registry.aisingapore.net/aiap/polyaxon/pytorch-tf2-cpu:latest
-
 ARG WORK_DIR="/home/polyaxon"
 ARG USER="polyaxon"
 
