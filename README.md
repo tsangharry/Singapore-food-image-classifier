@@ -1,15 +1,15 @@
 
 <h1>Singaporean Food Classifier</h1>
-
+<div style="text-align:center"><img src="img/App Screen.png" /></div>
 ## Table of Contents
 
-- [1.Introduction](#1.introduction)
-- [2.Model Specifications](#2.model-specifications)
-- [3.Model Deployment](#3.Model-Deployment)
-- [4.UI/UX](#4.UI/UX)
-- [5.CI/CD Pipeline](#5.CI/CD-Pipeline)
-- [6.App Limitations and Future Improvement](#6.App-Limitations-and-Future-Improvement)
-- [7.Authors](#7.Authors)
+1. [Introduction](#introduction)
+1. [Model Specifications](#model-specifications)
+1. [Model Deployment](#model-deployment)
+1. [UI/UX](#ui/ux)
+1. [CI/CD Pipeline](#ci/cd-pipeline)
+1. [App Limitations and Future Improvement](#app-limitations-and-future-improvement)
+1. [Authors](#authors)
 
 ## 1.Introduction
 
