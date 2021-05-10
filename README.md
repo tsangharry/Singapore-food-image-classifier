@@ -7,8 +7,8 @@
 1. [Introduction](#introduction)
 1. [Model Specifications](#model-specifications)
 1. [Model Deployment](#model-deployment)
-1. [UI/UX](#UI/UX)
-1. [CI/CD Pipeline](#CI/CD-Pipeline)
+1. [UI/UX](#Ui/ux)
+1. [CI/CD Pipeline](#Ci/cd-Pipeline)
 1. [App Limitations and Future Improvement](#app-limitations-and-future-improvement)
 1. [Authors](#authors)
 
