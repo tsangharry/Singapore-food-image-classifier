@@ -85,8 +85,6 @@ Continuous deployment (CD) is a software engineering approach in which software 
 <br>
 CI/CD Pipeline refers to a series of steps that must be performed in order to deliver a new version. In a world of fast changes, agile development has become dominant and CI/CD is crucial to the agile approach. CI/CD pipeline introduces monitoring and automation to improve the process of application development, particularly at the integration and testing phases, as well as during delivery and deployment. Although it is possible to manually execute each of the steps of a CI/CD pipeline, the true value of CI/CD pipelines is realized through automation.
 
-<div style="text-align:center"><img src="diagram.png" /></div>
-
 ## 6.App Limitations and Future Improvement
 
 ### Limitations
