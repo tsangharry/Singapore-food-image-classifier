@@ -1,6 +1,6 @@
 
 <h1>Singaporean Food Classifier</h1>
-<div style="text-align:center"><img src="img/App Screen.png" /></div>
+<div style="text-align:center"><img src="img/app_screen.png" | width=1200 /></div>
 ## Table of Contents
 
 1. [Introduction](#introduction)
