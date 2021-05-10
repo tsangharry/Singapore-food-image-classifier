@@ -1,6 +1,7 @@
 
 <h1>Singaporean Food Classifier</h1>
 <div style="text-align:center"><img src="img/app_screen.png" | width=1200 /></div>
+
 ## Table of Contents
 
 1. [Introduction](#introduction)
@@ -11,14 +12,14 @@
 1. [App Limitations and Future Improvement](#app-limitations-and-future-improvement)
 1. [Authors](#authors)
 
-## 1.Introduction
+## Introduction
 
 This web app aims to help foreigners and people who are not familiar with Singaporean Food to recognise them, together with learning their names and what it consists of. The webpage includes an interactive component asking for an image input from the user, which subsequently returns the most likely food class with the percentage of confidence of the model for the corresponding class. 
 <br>
 <br>
 The webpage also consists of other static information, such as model specifications, detailed description of the 12 classes of food and other useful links.
 
-## 2.Model Specifications
+## Model Specifications
 
 This model is built upon 1224 images of 12 different classes of Singaporean food, with the training,validation and test set split of 60:20:20.
 The food classifier is built using transfer learning of the InceptionV3 model, trained using the recognised Imagenet. The pre-trained weights were then used in this model,
@@ -29,7 +30,7 @@ helping to prevent overfitting.
 The Adaptive Moment Estimation (Adam) optimizer is used for combining the best properties of the AdaGrad and RMSProp algorithms to handle sparse gradients on noisy problems. 
 As a result, the model has  a 92.17% validation accuracy over 243 images in the validation set., while also achieving 91.67% accuracy over the test set.
 
-## 3.Model Deployment
+## Model Deployment
 
 ### Model Training
 
@@ -68,14 +69,14 @@ The dataset is relatively balanced, with the smallest to the largest class rangi
 
 The model has  a <b>92.17%</b> validation accuracy over 243 images in the validation set., while also achieving <b>91.67%</b> accuracy over the test set.
 
-## 4.UI/UX
+## UI/UX
 
 There are several components to the webpage, including 2 html files (index and base), a main javascript file and a css file. There are several functions to improve user experience, such as error messages to user if 'submit' is pressed with no image uploaded. There is also a clear button to reset and delete any uploaded image in the case user wants to start over.
 <br>
 <br>
 In the static information, collapsible boxes are used to not overwhelm user with too much information at the same time, therefore focusing their attention on specific section. In the section '12 Amazing Singaporean Food +', there are nested collapsible boxes for each food for the user to read each individually.
 
-## 5.CI/CD Pipeline
+## CI/CD Pipeline
 
 Continuous integration (CI) is the practice of merging all developers' working copies to a shared mainline several times a day. On a high frequency webpage, many features may need to be updated continuously, while multiple developers may work on the same repository at the same time.
 <br>
@@ -85,7 +86,7 @@ Continuous deployment (CD) is a software engineering approach in which software 
 <br>
 CI/CD Pipeline refers to a series of steps that must be performed in order to deliver a new version. In a world of fast changes, agile development has become dominant and CI/CD is crucial to the agile approach. CI/CD pipeline introduces monitoring and automation to improve the process of application development, particularly at the integration and testing phases, as well as during delivery and deployment. Although it is possible to manually execute each of the steps of a CI/CD pipeline, the true value of CI/CD pipelines is realized through automation.
 
-## 6.App Limitations and Future Improvement
+## App Limitations and Future Improvement
 
 ### Limitations
 
@@ -104,6 +105,6 @@ Future improvement will include improving both the model and the app. [Panoptic 
 <br>
 More features can be added to the application, including a database and cache to save previous uploads, remembering the preferences of the user.
 
-## 7.Authors
+## Authors
 
 This app is created by Harry Tsang. Please contact: [harrytsang92@gmail.com](harrytsang92@gmail.com)
