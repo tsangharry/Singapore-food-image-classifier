@@ -3,7 +3,7 @@ import re
 import base64
 import mistune
 from io import BytesIO
-from src.inference import load_model, resize_image, predict_image, return_class, return_probability
+from inference import load_model, resize_image, predict_image, return_class, return_probability
 from flask import Flask, request, render_template, jsonify
 from PIL import Image
 
