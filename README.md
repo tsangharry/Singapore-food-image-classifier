@@ -1,6 +1,6 @@
 
 <h1>Singaporean Food Classifier</h1>
-<div style="text-align:center"><img src="img/app_screen.png" | width=1200 /></div>
+<div style="text-align:center"><img src="img/app_demo.gif" | width=1200 /></div>
 
 ## Table of Contents
 
@@ -19,7 +19,10 @@ This web app deploys an image classification model trained with Tensorflow, depl
 It aims to help foreigners and people who are not familiar with Singaporean Food to recognise them, together with learning their names and what it consists of. The webpage includes an interactive component asking for an image input from the user, which subsequently returns the most likely food class with the percentage of confidence of the model for the corresponding class. 
 <br>
 <br>
+## Other Features
+
 The webpage also consists of other static information, such as model specifications, detailed description of the 12 classes of food and other useful links.
+<div style="text-align:center"><img src="img/features.gif" | width=1200 /></div>
 
 ## Model Specifications
 
